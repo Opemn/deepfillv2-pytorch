@@ -1,0 +1,15 @@
+import cv2
+
+# Load the damaged image
+damaged_image = cv2.imread('damaged_image.jpg')
+
+# Convert image to grayscale
+gray_image = cv2.cvtColor(damaged_image, cv2.COLOR_BGR2GRAY)
+
+# Perform inpainting
+inpainted_image = cv2.inpaint(damaged_image, gray_image, inpaintRadius=3, flags=cv2.INPAINT_TELEA)
+
+# Display the inpainted image
+cv2.imshow('Inpainted Image', inpainted_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
